@@ -30,6 +30,21 @@
      ]
  };
 
+var albumJay = {
+    name:'Jay',
+    artist: 'Jay Zhou',
+    label:'R&B',
+    year:'1999',
+    albumArtUrl: 'assets/images/album_covers/15.png',
+    songs:[
+         { name: 'Adorable Lady', length: '3:58' },
+         { name: 'Starry mood', length: '4:17' },
+         { name: 'Black Humor', length: '3:21'},
+         { name: 'Lazy to copy', length: '3:14' },
+         { name: 'Tornado', length: '2:15'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
      
      var template =
@@ -44,15 +59,17 @@ var createSongRow = function(songNumber, songName, songLength) {
  
  };
 
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+ 
+
 var setCurrentAlbum = function(album) {
  
      // #1
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
+     
      // #2
      albumTitle.firstChild.nodeValue = album.name;
      albumArtist.firstChild.nodeValue = album.artist;
@@ -72,5 +89,14 @@ var setCurrentAlbum = function(album) {
  window.onload = function() {
    
      setCurrentAlbum(albumPicasso);
+     var album =[albumPicasso, albumMarconi, albumJay];
+     var i =0;
+     albumImage.addEventListener("click",function(event){
+         setCurrentAlbum(album[i]);
+         i++;
+         if(i==album.length){
+     i=0;
+     }
+     });
      
  };

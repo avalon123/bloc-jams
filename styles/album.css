@@ -69,7 +69,6 @@ body.album {
      display: inline-block;
      width: 28px;
      height: 28px;
-     
  }
  
  .album-song-button:hover {
@@ -85,6 +84,7 @@ body.album {
  .album-song-button .fa-play {
      padding-left: 5px;
  }
+
  @media (max-width: 40rem) and (min-width: 20rem) {
      .album-view-details {
          text-align: center

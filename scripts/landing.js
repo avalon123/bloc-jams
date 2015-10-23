@@ -1,11 +1,5 @@
 var pointsArray = document.getElementsByClassName('point');
-<<<<<<< HEAD
-var animatePoints = function(points) {
-    var animatePoints = function()  {
-=======
-
-    var animatePoints = function() {
->>>>>>> checkpoint-32
+var animatePoints = function() {
         var revealPoint = function() {
          $(this).css({
              opacity: 1,
@@ -13,15 +7,9 @@ var animatePoints = function(points) {
          });
      };
      $.each($('.point'), revealPoint);
-<<<<<<< HEAD
-}};
- $(window).load(function(){
-=======
-    };
+};
  $(window).load (function() {
->>>>>>> checkpoint-32
-
-   var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
+  var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
      if ($(window).height() > 950) {
         animatePoints();
      }

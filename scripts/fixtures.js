@@ -7,7 +7,7 @@
      songs: [
         { name: 'Blue', length: '4:26', audioUrl: 'C:/Users/excalibur/bloc/bloc-jams/assets/music/blue' },
          { name: 'Green', length: '3:14', audioUrl: 'C:/Users/excalibur/bloc/bloc-jams/assets/music/green' },
-         { name: 'Red', length: '5:01', audioUrl: 'C:/Users/excalibur/bloc/bloc-jams/assets/music/red' },
+         { name: 'Red', length: '5:01', audioUrl: 'assets/music/red' },
          { name: 'Pink', length: '3:21', audioUrl: 'C:/Users/excalibur/bloc/bloc-jams/assets/music/pink' },
          { name: 'Magenta', length: '2:15', audioUrl: 'C:/Users/excalibur/bloc/bloc-jams/assets/music/magenta' } 
      ]

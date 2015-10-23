@@ -4,7 +4,7 @@ var setSong=function(songNumber){
      }
     currentlyPlayingSongNumber = songNumber;
     currentSongFromAlbum = currentAlbum.songs[songNumber-1];
-     currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
+    currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
          formats: [ 'mp3' ],
          preload: true
      });
@@ -172,6 +172,21 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.name + " - " + currentAlbum.artist);
     $('.main-controls .play-pause').html(playerBarPauseButton);
 };
+
+var togglePlayFromPlayerBar=function(){
+    var $currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+    if(currentSoundFile.isPaused()){
+     $(this).html(playerBarPauseButton);
+     $currentlyPlayingCell.html(pauseButtonTemplate);
+     currentSoundFile.play();
+    }
+    else if(currentSoundFile){
+    $(this).html(pauseButtonTemplate);
+    $currentlyPlayingCell.html(playButtonTemplate);
+    currentSoundFile.pause();
+    }
+    
+};
  
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
@@ -184,8 +199,11 @@ var currentSoundFile = null;
 var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var $playpause = $('.main-controls .play-pause');
  $(document).ready(function(){
      setCurrentAlbum(albumPicasso);   
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
+     $playpause.click(togglePlayFromPlayerBar);
+     
  });
